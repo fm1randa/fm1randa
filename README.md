@@ -1,4 +1,4 @@
-![banner](https://github.com/fm1randa/fm1randa/blob/main/banner.png)
+![banner](https://github.com/fm1randa/fm1randa/blob/main/bannerv2.png)
 <table align="center">
 <td>
     <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
