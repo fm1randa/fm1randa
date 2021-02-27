@@ -1,5 +1,5 @@
 ![banner](https://github.com/fm1randa/fm1randa/blob/main/banner.png)
-<table align="center" style="overflow: hidden;">
+<table align="center">
 <td>
     <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs"/>  
 </td>
