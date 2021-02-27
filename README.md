@@ -1,15 +1,15 @@
 ![banner](https://github.com/fm1randa/fm1randa/blob/main/banner.png)
 <table align="center">
 <td>
-    <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs"/>  
+    <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
 </td>
 
 <td>
-   <img width="400px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fm1randa&hide=html&layout=compact&theme=buefy" />
+   <img width="400px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fm1randa&hide=html&layout=compact&theme=dark" />
 </td>
 </table>
 
-### E aí, galera 👋
+### E aí 👋
 ---
 Sou estudante de **Análise e Desenvolvimento de Sistemas**, estudo programação desde 2017. Atualmente estou estudando **NodeJS**.
 
