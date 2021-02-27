@@ -15,7 +15,8 @@ Sou estudante de **Análise e Desenvolvimento de Sistemas**, estudo programaçã
 
 Curto demais basquete :basketball_man:, jogar :video_game: e assistir séries e animes :tv:
 
-Estou ativo no meu projeto pessoal **[krfollows](https://github.com/fm1randa/krfollows)** :desktop_computer:
+Estou ativo no meu projeto pessoal: 
+[![krfollows card](https://github-readme-stats.vercel.app/api/pin/?username=fm1randa&repo=krfollows&theme=dark&icon_color=fea625)](https://github.com/anuraghazra/github-readme-stats)
 
 ---
 
