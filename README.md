@@ -17,7 +17,7 @@ Curto demais basquete :basketball_man:, jogar :video_game: e assistir séries e 
 
 Estou ativo no meu projeto pessoal: 
 
-[![krfollows card](https://github-readme-stats.vercel.app/api/pin/?username=fm1randa&repo=krfollows&theme=dark&icon_color=fea625)](https://github.com/anuraghazra/github-readme-stats)
+[![krfollows card](https://github-readme-stats.vercel.app/api/pin/?username=fm1randa&repo=krfollows&theme=dark&icon_color=fea625)](https://github.com/fm1randa/krfollows)
 
 ---
 
