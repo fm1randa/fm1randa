@@ -1,5 +1,5 @@
-<h1 align="center"> E aí 👋, me chamo Filipe.    </h1>
----
+<h1 align="center"> E aí 👋, me chamo Filipe.</h1>
+
 <h3 align="center"> Estudante de <b>Análise e Desenvolvimento de Sistemas</b></h3>
 
 </br>
@@ -19,7 +19,7 @@
 🎯 Focando em **Node.js**
  
 
-<table align="center">
+<table align="center" style="overflow: hidden;">
 <td>
     <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
 </td>
