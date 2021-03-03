@@ -19,7 +19,7 @@
 🎯 Focando em **Node.js**
  
 
-<table align="center" overflow="hidden">
+<table align="center">
 <td>
     <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
 </td>
