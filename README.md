@@ -1,3 +1,9 @@
+### E aí 👋
+---
+![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
+
+Sou estudante de **Análise e Desenvolvimento de Sistemas**, estudo programação desde 2017. Atualmente estou estudando **NodeJS**.
+
 ![banner](https://github.com/fm1randa/fm1randa/blob/main/bannerv2.png)
 <table align="center">
 <td>
@@ -9,9 +15,6 @@
 </td>
 </table>
 
-### E aí 👋
----
-Sou estudante de **Análise e Desenvolvimento de Sistemas**, estudo programação desde 2017. Atualmente estou estudando **NodeJS**.
 
 Curto demais basquete :basketball_man:, jogar :video_game: e assistir séries e animes :tv:
 
@@ -31,7 +34,6 @@ Redes sociais: :mag:
 
 ---  
 
-![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
 
 <!--
 **fm1randa/fm1randa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
