@@ -1,10 +1,24 @@
-### E aí 👋
+<h1 align="center"> E aí 👋, me chamo Filipe.    </h1>
 ---
-![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
+<h3 align="center"> Estudante de <b>Análise e Desenvolvimento de Sistemas</b></h3>
 
-Sou estudante de **Análise e Desenvolvimento de Sistemas**, estudo programação desde 2017. Atualmente estou estudando **NodeJS**.
+</br>
 
 ![banner](https://github.com/fm1randa/fm1randa/blob/main/bannerv2.png)
+
+<center>
+
+![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
+
+</center>
+
+👨‍🎓 Aluno na [UniCarioca](https://unicarioca.edu.br/)
+
+👨‍💻 Estagiando em **Desenvolvimento Web**
+
+🎯 Focando em **Node.js**
+ 
+
 <table align="center">
 <td>
     <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
