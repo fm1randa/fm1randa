@@ -1,6 +1,6 @@
 <h1 align="center"> E aí 👋, me chamo Filipe.</h1>
 
-<h3 align="center"> Estudante de <b>Análise e Desenvolvimento de Sistemas</b></h3>
+<h3 align="center"> Estudante de <b>análise e desenvolvimento de sistemas</b></h3>
 
 </br>
 
@@ -16,7 +16,7 @@
 
 👨‍💻 Estagiando em **Desenvolvimento Web**
 
-🎯 Focando em **Node.js**
+🎯 Focando em **Javascript**
  
 
 <table align="center">
@@ -32,9 +32,6 @@
 
 Curto demais basquete :basketball_man:, jogar :video_game: e assistir séries e animes :tv:
 
-Estou ativo no meu projeto pessoal: 
-
-[![krfollows card](https://github-readme-stats.vercel.app/api/pin/?username=fm1randa&repo=krfollows&theme=dark&icon_color=fea625)](https://github.com/fm1randa/krfollows)
 
 ---
 
