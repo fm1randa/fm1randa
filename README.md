@@ -8,7 +8,8 @@
 
 <center>
 
-![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
+![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green) 
+[![wakatime](https://wakatime.com/badge/user/5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9.svg)](https://wakatime.com/@5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9)
 
 </center>
 
