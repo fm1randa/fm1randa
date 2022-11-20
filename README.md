@@ -1,63 +1,46 @@
-<h1 align="center"> E aí 👋, me chamo Filipe.</h1>
+<h2 align="left">hey! 👋 sup?</h2>
 
-<h3 align="center"> Estudante de <b>análise e desenvolvimento de sistemas</b></h3>
+###
 
-</br>
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&username=fm1randa" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&username=fm1randa" height="150" alt="languages graph"  />
+</div>
 
-![banner](https://github.com/fm1randa/fm1randa/blob/main/bannerv2.png)
+###
 
-<center>
+<img align="right" height="150" src="https://i.pinimg.com/564x/8b/5f/04/8b5f04525a528637c52dc12298e9e8e3.jpg"  />
 
-![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green) 
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" width="42" alt="javascript logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" height="30" width="42" alt="typescript logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30" width="42" alt="react logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="30" width="42" alt="html5 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" width="42" alt="css3 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" height="30" width="42" alt="nestjs logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" height="30" width="42" alt="jira logo"  />
+</div>
+
+###
+
+<div align="left">
+  <a href="https://www.instagram.com/k1ra.jpg/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram logo"  />
+  </a>
+  <a href="https://discordapp.com/users/k1ra#0458" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
+  </a>
+  <a href="mailto:filipe.rj149@gmail.com" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
+  </a>
+  <a href="https://www.linkedin.com/in/-filipemiranda/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+  </a>
+</div>
+
+![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
 [![wakatime](https://wakatime.com/badge/user/5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9.svg)](https://wakatime.com/@5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9)
 
-</center>
-
-👨‍🎓 Aluno na [UniCarioca](https://unicarioca.edu.br/)
-
-👨‍💻 Estagiando em **Desenvolvimento Web**
-
-🎯 Focando em **Javascript**
- 
-
-<table align="center">
-<td>
-    <img width="495px" align="left" src="https://github-readme-stats.vercel.app/api?username=fm1randa&theme=dark&show_icons=true&hide=prs&icon_color=fea625"/>  
-</td>
-
-<td>
-   <img width="400px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fm1randa&hide=html&layout=compact&theme=dark" />
-</td>
-</table>
-
-
-Curto demais basquete :basketball_man:, jogar :video_game: e assistir séries e animes :tv:
-
-
----
-
-Redes sociais: :mag:  
-
-[Twitter](https://twitter.com/k1ra_exe)   
-
-[Instagram](https://instagram.com/k1ra.jpg)
-
-[LinkedIn](https://www.linkedin.com/in/fm1randa)
-
----  
-
-
-<!--
-**fm1randa/fm1randa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+###
