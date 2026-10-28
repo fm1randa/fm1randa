@@ -11,6 +11,9 @@
 //
 // Usage: node scripts/activity.mjs [--out metrics]   fetch, check, write
 //        node scripts/activity.mjs --check [metrics]  re-check files already written (fetches repo names only)
+//        node scripts/activity.mjs --from-json metrics/activity.json [--out metrics]
+//                                                      re-render from saved aggregates, no token or fetch;
+//                                                      run --check afterwards to verify the outputs
 
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -299,9 +302,12 @@ export function summarize(months, now) {
 // ---------------------------------------------------------------------------------------------------------
 // Rendering
 
+// Series colors are validated for color-vision deficiency in pairs (added/deleted, opened/merged) against
+// GitHub's light (#ffffff) and dark (#0d1117) page backgrounds. `surface` is only used for the halo behind
+// value labels and the ring around markers; the SVG background itself stays transparent.
 export const THEMES = {
-  light: { fg: "#1f2328", muted: "#59636e", rule: "#d1d9e0", band: "#818b98", added: "#1a7f37", deleted: "#cf222e", commits: "#0969da", prs: "#8250df" },
-  dark: { fg: "#f0f6fc", muted: "#9198a1", rule: "#3d444d", band: "#9198a1", added: "#3fb950", deleted: "#f85149", commits: "#4493f8", prs: "#ab7df8" },
+  light: { fg: "#1f2328", muted: "#59636e", grid: "#d1d9e0", band: "#818b98", surface: "#ffffff", total: "#818b98", added: "#1a7f37", deleted: "#bf3989", commits: "#0969da", opened: "#1a7f37", merged: "#8250df" },
+  dark: { fg: "#f0f6fc", muted: "#9198a1", grid: "#3d444d", band: "#9198a1", surface: "#0d1117", total: "#656c76", added: "#2ea043", deleted: "#db61a2", commits: "#4493f8", opened: "#2ea043", merged: "#a371f7" },
 };
 
 export function compact(n) {
@@ -322,95 +328,182 @@ const r1 = (n) => Math.round(n * 10) / 10;
 
 const W = 800;
 const PAD_X = 16;
-const PANEL = { header: 18, headroom: 16, plot: 72, gap: 20 };
+const PLOT_LEFT = 52; // room for y-axis tick labels
+const PLOT_RIGHT = W - 28;
+const PANEL = { header: 16, headroom: 22, plot: 96, gap: 26 };
+const LABEL = { size: 11, charWidth: 6.4, height: 12 }; // generous width estimate so collision checks err safe
+
+// Round axis maximum and step (1/2/2.5/5 x 10^k) with at most 5 intervals.
+function niceScale(max) {
+  if (max <= 0) return { top: 1, step: 1 };
+  const pow = 10 ** Math.floor(Math.log10(max / 5));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * pow).find((s) => max / s <= 5);
+  return { top: Math.ceil(max / step) * step, step };
+}
+
+// Indices worth a value label, most important first: last (the partial month), peak and low of the complete
+// months, and the first month.
+function keyPoints(values, partialIndex) {
+  const complete = partialIndex >= 0 ? values.slice(0, partialIndex) : values;
+  const last = values.length - 1;
+  const max = complete.indexOf(Math.max(...complete));
+  const min = complete.indexOf(Math.min(...complete));
+  return [...new Set([last, max, min, 0])];
+}
+
+const overlaps = (a, b) => a.x1 < b.x2 && b.x1 < a.x2 && a.y1 < b.y2 && b.y1 < a.y2;
 
 export function renderSvg(stats, themeName) {
   const t = THEMES[themeName];
   const { months, totals } = stats;
-  const slot = (W - 2 * PAD_X) / months.length;
-  const barWidth = Math.round(slot * 0.56);
-  const x = (i) => PAD_X + i * slot;
+  const n = months.length;
+  const slot = (PLOT_RIGHT - PLOT_LEFT) / n;
+  const x = (i) => PLOT_LEFT + slot * (i + 0.5);
+  const partialIndex = months.findIndex((m) => m.partial);
 
   const panels = [
     {
       title: "Lines changed",
       total: totals.linesChanged,
-      legend: [[t.added, "added", totals.additions], [t.deleted, "deleted", totals.deletions]],
-      segments: (m) => [[m.additions, t.added], [m.deletions, t.deleted]],
+      series: [
+        { label: "total", color: t.total, values: months.map((m) => m.additions + m.deletions), faint: true },
+        { label: "added", color: t.added, values: months.map((m) => m.additions), legendValue: totals.additions },
+        { label: "deleted", color: t.deleted, values: months.map((m) => m.deletions), legendValue: totals.deletions },
+      ],
     },
-    { title: "Commits", total: totals.commits, legend: [], segments: (m) => [[m.commits, t.commits]] },
+    { title: "Commits", total: totals.commits, series: [{ label: "commits", color: t.commits, values: months.map((m) => m.commits) }] },
     {
       title: "Pull requests opened",
       total: totals.prsOpened,
-      legend: [[t.prs, "merged", totals.prsMerged], [t.prs, "not merged", totals.prsOpened - totals.prsMerged, 0.35]],
-      segments: (m) => [[m.prsMerged, t.prs], [m.prsOpened - m.prsMerged, t.prs, 0.35]],
+      series: [
+        { label: "opened", color: t.opened, values: months.map((m) => m.prsOpened) },
+        { label: "merged", color: t.merged, values: months.map((m) => m.prsMerged), legendValue: totals.prsMerged },
+      ],
     },
   ];
 
-  const font = `font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"`;
-  const out = [];
-  const top = 58;
+  const top = 50;
   const panelHeight = PANEL.header + PANEL.headroom + PANEL.plot;
-  const plotBottom = (p) => top + p * (panelHeight + PANEL.gap) + panelHeight;
-  const axisY = plotBottom(panels.length - 1);
-  const partialIndex = months.findIndex((m) => m.partial);
+  const panelTop = (p) => top + p * (panelHeight + PANEL.gap);
+  const axisY = panelTop(panels.length - 1) + panelHeight;
+  const back = []; // band, grid
+  const lines = [];
+  const marks = [];
+  const labels = [];
 
   if (partialIndex >= 0) {
-    const bandX = x(partialIndex) + 2;
-    out.push(`<rect x="${r1(bandX)}" y="${top - 6}" width="${r1(slot - 4)}" height="${axisY + 36 - (top - 6)}" rx="6" fill="${t.band}" fill-opacity="0.12"/>`);
+    back.push(`<rect x="${r1(x(partialIndex) - slot / 2 + 2)}" y="${top + PANEL.header + 4}" width="${r1(slot - 4)}" height="${r1(axisY + 34 - (top + PANEL.header + 4))}" rx="6" fill="${t.band}" fill-opacity="0.12"/>`);
   }
 
-  out.push(`<text x="${PAD_X}" y="28" font-size="17" font-weight="600" fill="${t.fg}">Monthly activity, last 12 months</text>`);
-
   panels.forEach((panel, p) => {
-    const headerY = top + p * (panelHeight + PANEL.gap) + 12;
-    const base = plotBottom(p);
-    // Legend follows the total on the left, so it never collides with the partial-month band or the right edge.
-    const legend = panel.legend
-      .map(([color, label, value, opacity]) => `<tspan dx="14" font-size="12" fill="${color}"${opacity ? ` fill-opacity="${opacity}"` : ""}>■</tspan><tspan dx="4" font-size="12">${label} ${compact(value)}</tspan>`)
-      .join("");
-    out.push(
-      `<text x="${PAD_X}" y="${headerY}" font-size="13" fill="${t.muted}"><tspan font-weight="600" fill="${t.fg}">${escapeXml(panel.title)}</tspan><tspan dx="8">${compact(panel.total)} total</tspan>${legend}</text>`,
-    );
-    out.push(`<line x1="${PAD_X}" x2="${W - PAD_X}" y1="${base + 0.5}" y2="${base + 0.5}" stroke="${t.rule}"/>`);
+    const headerY = panelTop(p) + 12;
+    const plotTop = panelTop(p) + PANEL.header + PANEL.headroom;
+    const base = plotTop + PANEL.plot;
+    const { top: yTop, step } = niceScale(Math.max(...panel.series.flatMap((s) => s.values)));
+    const y = (v) => base - (v / yTop) * PANEL.plot;
 
-    const totalsByMonth = months.map((m) => panel.segments(m).reduce((s, [v]) => s + v, 0));
-    const max = Math.max(...totalsByMonth, 1);
-    months.forEach((m, i) => {
-      const bx = r1(x(i) + (slot - barWidth) / 2);
-      let y = base;
-      for (const [value, color, opacity] of panel.segments(m)) {
-        if (value <= 0) continue;
-        const h = Math.max((value / max) * PANEL.plot, 1);
-        y -= h;
-        out.push(`<rect x="${bx}" y="${r1(y)}" width="${barWidth}" height="${r1(h)}" fill="${color}"${opacity ? ` fill-opacity="${opacity}"` : ""}/>`);
+    // Header: title, 12-month total, then a line-key legend when there is more than one series.
+    const legend = panel.series.length > 1
+      ? panel.series
+          .map((s) => {
+            const key = `<tspan dx="16" font-size="12" fill="${s.color}"${s.faint ? ' fill-opacity="0.8"' : ""}>${s.faint ? "┅" : "━"}</tspan>`;
+            return `${key}<tspan dx="4" font-size="12">${s.label}${s.legendValue !== undefined ? ` ${compact(s.legendValue)}` : ""}</tspan>`;
+          })
+          .join("")
+      : "";
+    back.push(`<text x="${PAD_X}" y="${headerY}" font-size="13" fill="${t.muted}"><tspan font-weight="600" fill="${t.fg}">${escapeXml(panel.title)}</tspan><tspan dx="8">${compact(panel.total)} total</tspan>${legend}</text>`);
+
+    // Recessive y grid with compact ticks.
+    for (let v = 0; v <= yTop + 1e-9; v += step) {
+      const gy = r1(y(v)) + 0.5;
+      back.push(`<line x1="${PLOT_LEFT}" x2="${PLOT_RIGHT}" y1="${gy}" y2="${gy}" stroke="${t.grid}" stroke-opacity="${v === 0 ? 1 : 0.6}"/>`);
+      back.push(`<text x="${PLOT_LEFT - 8}" y="${r1(gy + 3.5)}" font-size="10" text-anchor="end" fill="${t.muted}">${compact(v)}</text>`);
+    }
+
+    // Lines: solid through complete months, dashed into the partial month.
+    const solidEnd = partialIndex > 0 ? partialIndex : n;
+    for (const s of panel.series) {
+      const pts = s.values.map((v, i) => `${r1(x(i))},${r1(y(v))}`);
+      const width = s.faint ? 1.5 : 2;
+      const opacity = s.faint ? ' stroke-opacity="0.7"' : "";
+      lines.push(`<polyline points="${pts.slice(0, solidEnd).join(" ")}" fill="none" stroke="${s.color}" stroke-width="${width}" stroke-linejoin="round" stroke-linecap="round"${opacity}/>`);
+      if (partialIndex > 0) {
+        lines.push(`<polyline points="${pts.slice(partialIndex - 1).join(" ")}" fill="none" stroke="${s.color}" stroke-width="${width}" stroke-dasharray="4 4" stroke-linecap="round"${opacity}/>`);
       }
-      out.push(`<text x="${r1(x(i) + slot / 2)}" y="${r1(y - 4)}" font-size="11" text-anchor="middle" fill="${totalsByMonth[i] ? t.fg : t.muted}">${compact(totalsByMonth[i])}</text>`);
-    });
+      if (s.faint) continue;
+      s.values.forEach((v, i) => {
+        const partial = i === partialIndex;
+        // Ring in the page color keeps markers legible where lines cross; the partial month is hollow.
+        marks.push(`<circle cx="${r1(x(i))}" cy="${r1(y(v))}" r="4" fill="${partial ? t.surface : s.color}" stroke="${partial ? s.color : t.surface}" stroke-width="2"/>`);
+      });
+    }
+
+    // Value labels for the key points of each non-faint series. The upper series at a month labels above
+    // its point, the lower one below; a label that would collide with another label or marker, or leave the
+    // panel, tries the other side, then beside the point, then a bit farther out, and is dropped if every spot is taken.
+    const drawn = panel.series.filter((s) => !s.faint);
+    const boxes = [];
+    const markerBoxes = drawn.flatMap((s) => s.values.map((v, i) => ({ x1: x(i) - 5, x2: x(i) + 5, y1: y(v) - 5, y2: y(v) + 5 })));
+    // Lines are sampled into small boxes so labels avoid sitting on top of them. The faint total line may sit
+    // under a label; the label's halo keeps it readable.
+    const lineBoxes = drawn.flatMap((s) =>
+      s.values.slice(1).flatMap((v, k) => {
+        const [x0, y0, x1, y1] = [x(k), y(s.values[k]), x(k + 1), y(v)];
+        const steps = Math.ceil(Math.hypot(x1 - x0, y1 - y0) / 3);
+        return Array.from({ length: steps + 1 }, (_, j) => {
+          const [px, py] = [x0 + ((x1 - x0) * j) / steps, y0 + ((y1 - y0) * j) / steps];
+          return { x1: px - 1, x2: px + 1, y1: py - 1, y2: py + 1 };
+        });
+      }),
+    );
+    const wanted = drawn.flatMap((s) => keyPoints(s.values, partialIndex).map((i, rank) => ({ s, i, rank })));
+    wanted.sort((a, b) => a.rank - b.rank);
+    for (const { s, i } of wanted) {
+      const v = s.values[i];
+      const others = drawn.filter((o) => o !== s).map((o) => o.values[i]);
+      const isUpper = others.every((o) => v >= o);
+      const text = compact(v);
+      const w = text.length * LABEL.charWidth;
+      const box = (dx, dy, gap = 9) => {
+        const cx = x(i) + dx * (w / 2 + 8);
+        const baseline = y(v) + (dy < 0 ? -gap : dy > 0 ? gap + LABEL.height - 2 : 4);
+        return { cx, x1: cx - w / 2, x2: cx + w / 2, y1: baseline - LABEL.height + 2, y2: baseline + 2, baseline };
+      };
+      const vertical = isUpper ? [-1, 1] : [1, -1];
+      const candidates = [box(0, vertical[0]), box(0, vertical[1]), box(1, 0), box(-1, 0), box(0, vertical[0], 18), box(0, vertical[1], 18)];
+      const fits = (b) =>
+        b.y1 >= plotTop - PANEL.headroom + 4 && b.y2 <= base + (p < panels.length - 1 ? 14 : -1) && b.x1 >= PLOT_LEFT && b.x2 <= W - 4 &&
+        [boxes, markerBoxes, lineBoxes].every((list) => !list.some((o) => overlaps(o, b)));
+      const choice = candidates.find(fits);
+      if (!choice) continue;
+      boxes.push(choice);
+      labels.push(`<text x="${r1(choice.cx)}" y="${r1(choice.baseline)}" font-size="${LABEL.size}" text-anchor="middle" fill="${t.fg}" stroke="${t.surface}" stroke-width="3" stroke-linejoin="round" paint-order="stroke">${text}</text>`);
+    }
   });
 
   months.forEach((m, i) => {
     const [year, month] = m.month.split("-").map(Number);
-    const cx = r1(x(i) + slot / 2);
+    const cx = r1(x(i));
     const notes = [];
     if (i === 0 || month === 1) notes.push(String(year));
     if (m.partial) notes.push("partial");
-    out.push(`<text x="${cx}" y="${axisY + 16}" font-size="11" text-anchor="middle" fill="${t.fg}">${MONTH_NAMES[month - 1]}</text>`);
-    if (notes.length) out.push(`<text x="${cx}" y="${axisY + 29}" font-size="10" text-anchor="middle" fill="${t.muted}">${notes.join(" · ")}</text>`);
+    back.push(`<text x="${cx}" y="${axisY + 18}" font-size="11" text-anchor="middle" fill="${t.fg}">${MONTH_NAMES[month - 1]}</text>`);
+    if (notes.length) back.push(`<text x="${cx}" y="${axisY + 30}" font-size="10" text-anchor="middle" fill="${t.muted}">${notes.join(" · ")}</text>`);
   });
 
   const excluded = totals.largeCommits;
   const footY = axisY + 56;
-  out.push(
+  back.push(
     `<text x="${PAD_X}" y="${footY}" font-size="11" fill="${t.muted}">Lines exclude merge commits and commits over ${compact(MAX_LINES_PER_COMMIT)} changed lines (${excluded} ${excluded === 1 ? "commit" : "commits"} left out). Commits: default branches.</text>`,
     `<text x="${PAD_X}" y="${footY + 17}" font-size="11" fill="${t.muted}">Includes private contributions (aggregated) · updated ${stats.updated}</text>`,
   );
 
   const height = footY + 28;
   const label = `Monthly activity over the last 12 months: ${compact(totals.linesChanged)} lines changed, ${compact(totals.commits)} commits, ${compact(totals.prsOpened)} pull requests opened.`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${height}" viewBox="0 0 ${W} ${height}" role="img" aria-label="${escapeXml(label)}" ${font}>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${height}" viewBox="0 0 ${W} ${height}" role="img" aria-label="${escapeXml(label)}" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
 <title>${escapeXml(label)}</title>
-${out.join("\n")}
+<text x="${PAD_X}" y="26" font-size="17" font-weight="600" fill="${t.fg}">Monthly activity, last 12 months</text>
+${[...back, ...lines, ...marks, ...labels].join("\n")}
 </svg>
 `;
 }
@@ -460,13 +553,25 @@ async function check(token, dir) {
   log(`privacy check passed: ${files.length} files, ${knownNames.length} repo names checked`);
 }
 
+async function writeOutputs(outDir, outputs) {
+  await mkdir(outDir, { recursive: true });
+  for (const [file, content] of Object.entries(outputs)) await writeFile(join(outDir, file), content);
+  log(`wrote ${Object.keys(outputs).length} files to ${outDir}/`);
+}
+
 async function main() {
+  const outIndex = process.argv.indexOf("--out");
+  const outDir = outIndex > 0 ? process.argv[outIndex + 1] : "metrics";
+  const jsonIndex = process.argv.indexOf("--from-json");
+  if (jsonIndex > 0) {
+    const stats = JSON.parse(await readFile(process.argv[jsonIndex + 1], "utf8"));
+    return writeOutputs(outDir, renderAll(stats));
+  }
+
   const token = process.env.GH_TOKEN || process.env.METRICS_TOKEN;
   if (!token) throw new Error("set GH_TOKEN or METRICS_TOKEN");
   const checkIndex = process.argv.indexOf("--check");
   if (checkIndex > 0) return check(token, process.argv[checkIndex + 1] ?? "metrics");
-  const outIndex = process.argv.indexOf("--out");
-  const outDir = outIndex > 0 ? process.argv[outIndex + 1] : "metrics";
 
   const now = new Date();
   const stats = await collect(token, now);
@@ -482,9 +587,7 @@ async function main() {
   }
   log(`privacy check passed (${knownNames.length} repo names checked)`);
 
-  await mkdir(outDir, { recursive: true });
-  for (const [file, content] of Object.entries(outputs)) await writeFile(join(outDir, file), content);
-  log(`wrote ${Object.keys(outputs).length} files to ${outDir}/`);
+  await writeOutputs(outDir, outputs);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

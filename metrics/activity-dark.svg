@@ -1,123 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Monthly activity over the last 12 months: 1.3M lines changed, 3.5k commits, 1.2k pull requests opened." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="588" viewBox="0 0 800 588" role="img" aria-label="Monthly activity over the last 12 months: 1.3M lines changed, 3.5k commits, 1.2k pull requests opened." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
 <title>Monthly activity over the last 12 months: 1.3M lines changed, 3.5k commits, 1.2k pull requests opened.</title>
-<rect x="722" y="52" width="60" height="400" rx="6" fill="#9198a1" fill-opacity="0.12"/>
-<text x="16" y="28" font-size="17" font-weight="600" fill="#f0f6fc">Monthly activity, last 12 months</text>
-<text x="16" y="70" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Lines changed</tspan><tspan dx="8">1.3M total</tspan><tspan dx="14" font-size="12" fill="#3fb950">■</tspan><tspan dx="4" font-size="12">added 919k</tspan><tspan dx="14" font-size="12" fill="#f85149">■</tspan><tspan dx="4" font-size="12">deleted 352k</tspan></text>
-<line x1="16" x2="784" y1="164.5" y2="164.5" stroke="#3d444d"/>
-<rect x="30" y="155.8" width="36" height="8.2" fill="#3fb950"/>
-<rect x="30" y="153.7" width="36" height="2.1" fill="#f85149"/>
-<text x="48" y="149.7" font-size="11" text-anchor="middle" fill="#f0f6fc">31.1k</text>
-<rect x="94" y="152.3" width="36" height="11.7" fill="#3fb950"/>
-<rect x="94" y="149.7" width="36" height="2.5" fill="#f85149"/>
-<text x="112" y="145.7" font-size="11" text-anchor="middle" fill="#f0f6fc">43.3k</text>
-<rect x="158" y="120.7" width="36" height="43.3" fill="#3fb950"/>
-<rect x="158" y="96.3" width="36" height="24.3" fill="#f85149"/>
-<text x="176" y="92.3" font-size="11" text-anchor="middle" fill="#f0f6fc">205k</text>
-<rect x="222" y="142.5" width="36" height="21.5" fill="#3fb950"/>
-<rect x="222" y="133.1" width="36" height="9.4" fill="#f85149"/>
-<text x="240" y="129.1" font-size="11" text-anchor="middle" fill="#f0f6fc">93.6k</text>
-<rect x="286" y="121.4" width="36" height="42.6" fill="#3fb950"/>
-<rect x="286" y="92" width="36" height="29.4" fill="#f85149"/>
-<text x="304" y="88" font-size="11" text-anchor="middle" fill="#f0f6fc">218k</text>
-<rect x="350" y="136.1" width="36" height="27.9" fill="#3fb950"/>
-<rect x="350" y="120.5" width="36" height="15.7" fill="#f85149"/>
-<text x="368" y="116.5" font-size="11" text-anchor="middle" fill="#f0f6fc">132k</text>
-<rect x="414" y="157.6" width="36" height="6.4" fill="#3fb950"/>
-<rect x="414" y="155.7" width="36" height="1.9" fill="#f85149"/>
-<text x="432" y="151.7" font-size="11" text-anchor="middle" fill="#f0f6fc">25.2k</text>
-<rect x="478" y="131.3" width="36" height="32.7" fill="#3fb950"/>
-<rect x="478" y="118.3" width="36" height="12.9" fill="#f85149"/>
-<text x="496" y="114.3" font-size="11" text-anchor="middle" fill="#f0f6fc">138k</text>
-<rect x="542" y="141" width="36" height="23" fill="#3fb950"/>
-<rect x="542" y="138.5" width="36" height="2.5" fill="#f85149"/>
-<text x="560" y="134.5" font-size="11" text-anchor="middle" fill="#f0f6fc">77.4k</text>
-<rect x="606" y="124.7" width="36" height="39.3" fill="#3fb950"/>
-<rect x="606" y="121.2" width="36" height="3.5" fill="#f85149"/>
-<text x="624" y="117.2" font-size="11" text-anchor="middle" fill="#f0f6fc">130k</text>
-<rect x="670" y="146.8" width="36" height="17.2" fill="#3fb950"/>
-<rect x="670" y="141.5" width="36" height="5.3" fill="#f85149"/>
-<text x="688" y="137.5" font-size="11" text-anchor="middle" fill="#f0f6fc">68.1k</text>
-<rect x="734" y="134.6" width="36" height="29.4" fill="#3fb950"/>
-<rect x="734" y="128.2" width="36" height="6.4" fill="#f85149"/>
-<text x="752" y="124.2" font-size="11" text-anchor="middle" fill="#f0f6fc">109k</text>
-<text x="16" y="196" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Commits</tspan><tspan dx="8">3.5k total</tspan></text>
-<line x1="16" x2="784" y1="290.5" y2="290.5" stroke="#3d444d"/>
-<rect x="30" y="280.2" width="36" height="9.8" fill="#4493f8"/>
-<text x="48" y="276.2" font-size="11" text-anchor="middle" fill="#f0f6fc">95</text>
-<rect x="94" y="282" width="36" height="8" fill="#4493f8"/>
-<text x="112" y="278" font-size="11" text-anchor="middle" fill="#f0f6fc">78</text>
-<rect x="158" y="245.9" width="36" height="44.1" fill="#4493f8"/>
-<text x="176" y="241.9" font-size="11" text-anchor="middle" fill="#f0f6fc">429</text>
-<rect x="222" y="260.6" width="36" height="29.4" fill="#4493f8"/>
-<text x="240" y="256.6" font-size="11" text-anchor="middle" fill="#f0f6fc">286</text>
-<rect x="286" y="244.2" width="36" height="45.8" fill="#4493f8"/>
-<text x="304" y="240.2" font-size="11" text-anchor="middle" fill="#f0f6fc">445</text>
-<rect x="350" y="268.1" width="36" height="21.9" fill="#4493f8"/>
-<text x="368" y="264.1" font-size="11" text-anchor="middle" fill="#f0f6fc">213</text>
-<rect x="414" y="266.4" width="36" height="23.6" fill="#4493f8"/>
-<text x="432" y="262.4" font-size="11" text-anchor="middle" fill="#f0f6fc">229</text>
-<rect x="478" y="250.8" width="36" height="39.2" fill="#4493f8"/>
-<text x="496" y="246.8" font-size="11" text-anchor="middle" fill="#f0f6fc">381</text>
-<rect x="542" y="268.3" width="36" height="21.7" fill="#4493f8"/>
-<text x="560" y="264.3" font-size="11" text-anchor="middle" fill="#f0f6fc">211</text>
-<rect x="606" y="269.8" width="36" height="20.2" fill="#4493f8"/>
-<text x="624" y="265.8" font-size="11" text-anchor="middle" fill="#f0f6fc">196</text>
-<rect x="670" y="264" width="36" height="26" fill="#4493f8"/>
-<text x="688" y="260" font-size="11" text-anchor="middle" fill="#f0f6fc">253</text>
-<rect x="734" y="218" width="36" height="72" fill="#4493f8"/>
-<text x="752" y="214" font-size="11" text-anchor="middle" fill="#f0f6fc">700</text>
-<text x="16" y="322" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Pull requests opened</tspan><tspan dx="8">1.2k total</tspan><tspan dx="14" font-size="12" fill="#ab7df8">■</tspan><tspan dx="4" font-size="12">merged 1.1k</tspan><tspan dx="14" font-size="12" fill="#ab7df8" fill-opacity="0.35">■</tspan><tspan dx="4" font-size="12">not merged 89</tspan></text>
-<line x1="16" x2="784" y1="416.5" y2="416.5" stroke="#3d444d"/>
-<rect x="30" y="407.8" width="36" height="8.2" fill="#ab7df8"/>
-<rect x="30" y="406.8" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="48" y="402.8" font-size="11" text-anchor="middle" fill="#f0f6fc">34</text>
-<rect x="94" y="406.5" width="36" height="9.5" fill="#ab7df8"/>
-<text x="112" y="402.5" font-size="11" text-anchor="middle" fill="#f0f6fc">38</text>
-<rect x="158" y="389.3" width="36" height="26.7" fill="#ab7df8"/>
-<rect x="158" y="385.6" width="36" height="3.7" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="176" y="381.6" font-size="11" text-anchor="middle" fill="#f0f6fc">122</text>
-<rect x="222" y="411.5" width="36" height="4.5" fill="#ab7df8"/>
-<rect x="222" y="410.5" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="240" y="406.5" font-size="11" text-anchor="middle" fill="#f0f6fc">20</text>
-<rect x="286" y="385.6" width="36" height="30.4" fill="#ab7df8"/>
-<rect x="286" y="383.1" width="36" height="2.5" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="304" y="379.1" font-size="11" text-anchor="middle" fill="#f0f6fc">132</text>
-<rect x="350" y="392.3" width="36" height="23.7" fill="#ab7df8"/>
-<rect x="350" y="391.3" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="368" y="387.3" font-size="11" text-anchor="middle" fill="#f0f6fc">97</text>
-<rect x="414" y="391.6" width="36" height="24.4" fill="#ab7df8"/>
-<rect x="414" y="390.6" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="432" y="386.6" font-size="11" text-anchor="middle" fill="#f0f6fc">101</text>
-<rect x="478" y="388.8" width="36" height="27.2" fill="#ab7df8"/>
-<rect x="478" y="387.8" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="496" y="383.8" font-size="11" text-anchor="middle" fill="#f0f6fc">110</text>
-<rect x="542" y="393.6" width="36" height="22.4" fill="#ab7df8"/>
-<rect x="542" y="392.6" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="560" y="388.6" font-size="11" text-anchor="middle" fill="#f0f6fc">92</text>
-<rect x="606" y="397.8" width="36" height="18.2" fill="#ab7df8"/>
-<rect x="606" y="396.8" width="36" height="1" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="624" y="392.8" font-size="11" text-anchor="middle" fill="#f0f6fc">75</text>
-<rect x="670" y="400.3" width="36" height="15.7" fill="#ab7df8"/>
-<rect x="670" y="399.1" width="36" height="1.2" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="688" y="395.1" font-size="11" text-anchor="middle" fill="#f0f6fc">68</text>
-<rect x="734" y="355.5" width="36" height="60.5" fill="#ab7df8"/>
-<rect x="734" y="344" width="36" height="11.5" fill="#ab7df8" fill-opacity="0.35"/>
-<text x="752" y="340" font-size="11" text-anchor="middle" fill="#f0f6fc">289</text>
-<text x="48" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Nov</text>
-<text x="48" y="445" font-size="10" text-anchor="middle" fill="#9198a1">2025</text>
-<text x="112" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Dec</text>
-<text x="176" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Jan</text>
-<text x="176" y="445" font-size="10" text-anchor="middle" fill="#9198a1">2026</text>
-<text x="240" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Feb</text>
-<text x="304" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Mar</text>
-<text x="368" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Apr</text>
-<text x="432" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">May</text>
-<text x="496" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Jun</text>
-<text x="560" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Jul</text>
-<text x="624" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Aug</text>
-<text x="688" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Sep</text>
-<text x="752" y="432" font-size="11" text-anchor="middle" fill="#f0f6fc">Oct</text>
-<text x="752" y="445" font-size="10" text-anchor="middle" fill="#9198a1">partial</text>
-<text x="16" y="472" font-size="11" fill="#9198a1">Lines exclude merge commits and commits over 20k changed lines (15 commits left out). Commits: default branches.</text>
-<text x="16" y="489" font-size="11" fill="#9198a1">Includes private contributions (aggregated) · updated 2026-10-28</text>
+<text x="16" y="26" font-size="17" font-weight="600" fill="#f0f6fc">Monthly activity, last 12 months</text>
+<rect x="714" y="70" width="56" height="468" rx="6" fill="#9198a1" fill-opacity="0.12"/>
+<text x="16" y="62" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Lines changed</tspan><tspan dx="8">1.3M total</tspan><tspan dx="16" font-size="12" fill="#656c76" fill-opacity="0.8">┅</tspan><tspan dx="4" font-size="12">total</tspan><tspan dx="16" font-size="12" fill="#2ea043">━</tspan><tspan dx="4" font-size="12">added 919k</tspan><tspan dx="16" font-size="12" fill="#db61a2">━</tspan><tspan dx="4" font-size="12">deleted 352k</tspan></text>
+<line x1="52" x2="772" y1="184.5" y2="184.5" stroke="#3d444d" stroke-opacity="1"/>
+<text x="44" y="188" font-size="10" text-anchor="end" fill="#9198a1">0</text>
+<line x1="52" x2="772" y1="165.3" y2="165.3" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="168.8" font-size="10" text-anchor="end" fill="#9198a1">50k</text>
+<line x1="52" x2="772" y1="146.1" y2="146.1" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="149.6" font-size="10" text-anchor="end" fill="#9198a1">100k</text>
+<line x1="52" x2="772" y1="126.9" y2="126.9" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="130.4" font-size="10" text-anchor="end" fill="#9198a1">150k</text>
+<line x1="52" x2="772" y1="107.7" y2="107.7" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="111.2" font-size="10" text-anchor="end" fill="#9198a1">200k</text>
+<line x1="52" x2="772" y1="88.5" y2="88.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="92" font-size="10" text-anchor="end" fill="#9198a1">250k</text>
+<text x="16" y="222" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Commits</tspan><tspan dx="8">3.5k total</tspan></text>
+<line x1="52" x2="772" y1="344.5" y2="344.5" stroke="#3d444d" stroke-opacity="1"/>
+<text x="44" y="348" font-size="10" text-anchor="end" fill="#9198a1">0</text>
+<line x1="52" x2="772" y1="320.5" y2="320.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="324" font-size="10" text-anchor="end" fill="#9198a1">200</text>
+<line x1="52" x2="772" y1="296.5" y2="296.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="300" font-size="10" text-anchor="end" fill="#9198a1">400</text>
+<line x1="52" x2="772" y1="272.5" y2="272.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="276" font-size="10" text-anchor="end" fill="#9198a1">600</text>
+<line x1="52" x2="772" y1="248.5" y2="248.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="252" font-size="10" text-anchor="end" fill="#9198a1">800</text>
+<text x="16" y="382" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Pull requests opened</tspan><tspan dx="8">1.2k total</tspan><tspan dx="16" font-size="12" fill="#2ea043">━</tspan><tspan dx="4" font-size="12">opened</tspan><tspan dx="16" font-size="12" fill="#a371f7">━</tspan><tspan dx="4" font-size="12">merged 1.1k</tspan></text>
+<line x1="52" x2="772" y1="504.5" y2="504.5" stroke="#3d444d" stroke-opacity="1"/>
+<text x="44" y="508" font-size="10" text-anchor="end" fill="#9198a1">0</text>
+<line x1="52" x2="772" y1="472.5" y2="472.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="476" font-size="10" text-anchor="end" fill="#9198a1">100</text>
+<line x1="52" x2="772" y1="440.5" y2="440.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="444" font-size="10" text-anchor="end" fill="#9198a1">200</text>
+<line x1="52" x2="772" y1="408.5" y2="408.5" stroke="#3d444d" stroke-opacity="0.6"/>
+<text x="44" y="412" font-size="10" text-anchor="end" fill="#9198a1">300</text>
+<text x="82" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Nov</text>
+<text x="82" y="534" font-size="10" text-anchor="middle" fill="#9198a1">2025</text>
+<text x="142" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Dec</text>
+<text x="202" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Jan</text>
+<text x="202" y="534" font-size="10" text-anchor="middle" fill="#9198a1">2026</text>
+<text x="262" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Feb</text>
+<text x="322" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Mar</text>
+<text x="382" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Apr</text>
+<text x="442" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">May</text>
+<text x="502" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Jun</text>
+<text x="562" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Jul</text>
+<text x="622" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Aug</text>
+<text x="682" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Sep</text>
+<text x="742" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Oct</text>
+<text x="742" y="534" font-size="10" text-anchor="middle" fill="#9198a1">partial</text>
+<text x="16" y="560" font-size="11" fill="#9198a1">Lines exclude merge commits and commits over 20k changed lines (15 commits left out). Commits: default branches.</text>
+<text x="16" y="577" font-size="11" fill="#9198a1">Includes private contributions (aggregated) · updated 2026-10-28</text>
+<polyline points="82,172 142,167.4 202,105.3 262,148.1 322,100.3 382,133.4 442,174.3 502,130.9 562,154.3 622,134.2 682,157.8" fill="none" stroke="#656c76" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.7"/>
+<polyline points="682,157.8 742,142.3" fill="none" stroke="#656c76" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" stroke-opacity="0.7"/>
+<polyline points="82,174.5 142,170.3 202,133.6 262,159 322,134.4 382,151.6 442,176.6 502,145.9 562,157.2 622,138.2 682,164" fill="none" stroke="#2ea043" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="682,164 742,149.8" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="82,181.6 142,181 202,155.7 262,173 322,149.8 382,165.8 442,181.8 502,168.9 562,181.1 622,179.9 682,177.8" fill="none" stroke="#db61a2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="682,177.8 742,176.5" fill="none" stroke="#db61a2" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="82,332.6 142,334.6 202,292.5 262,309.7 322,290.6 382,318.4 442,316.5 502,298.3 562,318.7 622,320.5 682,313.6" fill="none" stroke="#4493f8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="682,313.6 742,260" fill="none" stroke="#4493f8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="82,493.1 142,491.8 202,465 262,497.6 322,461.8 382,473 442,471.7 502,468.8 562,474.6 622,480 682,482.2" fill="none" stroke="#2ea043" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="682,482.2 742,411.5" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="82,493.4 142,491.8 202,469.8 262,498.2 322,465 382,473.6 442,472.6 502,469.1 562,475.2 622,480.6 682,483.8" fill="none" stroke="#a371f7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="682,483.8 742,426.2" fill="none" stroke="#a371f7" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<circle cx="82" cy="174.5" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="142" cy="170.3" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="202" cy="133.6" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="262" cy="159" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="322" cy="134.4" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382" cy="151.6" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="442" cy="176.6" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="502" cy="145.9" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="562" cy="157.2" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="622" cy="138.2" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="682" cy="164" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="742" cy="149.8" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
+<circle cx="82" cy="181.6" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="142" cy="181" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="202" cy="155.7" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="262" cy="173" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="322" cy="149.8" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382" cy="165.8" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="442" cy="181.8" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="502" cy="168.9" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="562" cy="181.1" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="622" cy="179.9" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="682" cy="177.8" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
+<circle cx="742" cy="176.5" r="4" fill="#0d1117" stroke="#db61a2" stroke-width="2"/>
+<circle cx="82" cy="332.6" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="142" cy="334.6" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="202" cy="292.5" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="262" cy="309.7" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="322" cy="290.6" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382" cy="318.4" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="442" cy="316.5" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="502" cy="298.3" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="562" cy="318.7" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="622" cy="320.5" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="682" cy="313.6" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
+<circle cx="742" cy="260" r="4" fill="#0d1117" stroke="#4493f8" stroke-width="2"/>
+<circle cx="82" cy="493.1" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="142" cy="491.8" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="202" cy="465" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="262" cy="497.6" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="322" cy="461.8" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382" cy="473" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="442" cy="471.7" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="502" cy="468.8" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="562" cy="474.6" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="622" cy="480" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="682" cy="482.2" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
+<circle cx="742" cy="411.5" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
+<circle cx="82" cy="493.4" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="142" cy="491.8" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="202" cy="469.8" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="262" cy="498.2" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="322" cy="465" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382" cy="473.6" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="442" cy="472.6" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="502" cy="469.1" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="562" cy="475.2" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="622" cy="480.6" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="682" cy="483.8" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="742" cy="426.2" r="4" fill="#0d1117" stroke="#a371f7" stroke-width="2"/>
+<text x="742" y="140.8" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">89.1k</text>
+<text x="742" y="195.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">19.5k</text>
+<text x="202" y="124.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">131k</text>
+<text x="322" y="168.8" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">88.9k</text>
+<text x="442" y="158.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">19.4k</text>
+<text x="82" y="165.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">24.8k</text>
+<text x="742" y="251" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">700</text>
+<text x="322" y="281.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">445</text>
+<text x="142" y="325.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">78</text>
+<text x="82" y="323.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">95</text>
+<text x="742" y="402.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">289</text>
+<text x="759.6" y="430.2" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">243</text>
+<text x="322" y="452.8" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">132</text>
+<text x="322" y="484" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">122</text>
+<text x="262" y="488.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">20</text>
+<text x="82" y="484.1" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">34</text>
+<text x="67.6" y="497.4" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">33</text>
 </svg>
