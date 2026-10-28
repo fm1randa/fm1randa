@@ -2,7 +2,8 @@
 // Monthly activity chart for the profile README (last 12 months, current month partial).
 //
 // Data comes from the GitHub GraphQL API using a token with `repo` + `read:org` (GH_TOKEN or METRICS_TOKEN):
-//   - commits + lines: default-branch history of every accessible non-fork repo, filtered by author
+//   - commits + lines: the user's commits on the default branch and long-lived branches (EXTRA_BRANCHES) of
+//     every accessible non-fork repo, deduplicated by SHA (rebased/cherry-picked copies by author date + message)
 //     (contributionsCollection reports most org contributions only as "restricted", so it can't be used)
 //   - pull requests: search issueCount for `is:pr author:<login> created:<month>` (and `is:merged`)
 //
@@ -16,6 +17,7 @@
 //                                                      run --check afterwards to verify the outputs
 
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -29,8 +31,6 @@ export const MAX_LINES_PER_COMMIT = 20_000;
 const API = "https://api.github.com/graphql";
 const MAX_ATTEMPTS = 6;
 const MAX_WAIT_MS = 15 * 60_000;
-const BATCH_SIZE = 25;
-const PAGE_SIZES = [50, 25, 10];
 
 // ---------------------------------------------------------------------------------------------------------
 // Logging: counts only. Lines are kept so the privacy check can scan them too.
@@ -109,9 +109,12 @@ function resetWait(headers) {
   return 0;
 }
 
-async function gql(token, query, variables = {}) {
+let apiCalls = 0;
+let rateLimitUsed = []; // [first, last] x-ratelimit-used seen in this run
+
+async function gql(token, query, variables = {}, maxAttempts = MAX_ATTEMPTS) {
   let lastError;
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     let wait = Math.min(2 ** attempt * 1000, 60_000);
     try {
       const res = await fetch(API, {
@@ -119,7 +122,10 @@ async function gql(token, query, variables = {}) {
         headers: { Authorization: `bearer ${token}`, "Content-Type": "application/json", "User-Agent": `${LOGIN}-activity` },
         body: JSON.stringify({ query, variables }),
       });
-      if (res.status === 401) throw Object.assign(new Error("401 Unauthorized: check the token"), { fatal: true });
+      apiCalls++;
+      const used = Number(res.headers.get("x-ratelimit-used"));
+      if (used) rateLimitUsed = [rateLimitUsed[0] ?? used, used];
+      if (res.status === 401) throw Object.assign(new Error("401 Unauthorized: check the token"), { fatal: true, status: 401 });
       if (res.status === 403 || res.status === 429 || res.status >= 500) {
         wait = Math.max(wait, resetWait(res.headers));
         lastError = new Error(`HTTP ${res.status}`);
@@ -137,9 +143,9 @@ async function gql(token, query, variables = {}) {
       if (error.fatal) throw error;
       lastError = error;
     }
-    if (attempt < MAX_ATTEMPTS) {
+    if (attempt < maxAttempts) {
       wait = Math.min(wait, MAX_WAIT_MS);
-      log(`  retry ${attempt}/${MAX_ATTEMPTS - 1} in ${Math.round(wait / 1000)}s (${redact(lastError.message)})`);
+      log(`  retry ${attempt}/${maxAttempts - 1} in ${Math.round(wait / 1000)}s (${redact(lastError.message)})`);
       await sleep(wait);
     }
   }
@@ -169,53 +175,147 @@ async function listRepositories(token) {
 }
 
 const historyArgs = "author: { id: $author }, since: $since, until: $until";
+const COMMIT_FIELDS = "id oid committedDate authoredDate messageHeadline parents { totalCount }";
 
-// Which repos have commits by the user in the window (batched; repos that error out are counted and skipped).
-async function reposWithCommits(token, repos, authorId, since, until) {
-  const active = [];
-  let unreadable = 0;
-  for (let i = 0; i < repos.length; i += BATCH_SIZE) {
-    const batch = repos.slice(i, i + BATCH_SIZE);
-    const fields = batch
-      .map((r, j) => `r${j}: node(id: ${JSON.stringify(r.id)}) { ... on Repository { defaultBranchRef { target { ... on Commit { history(${historyArgs}) { totalCount } } } } } }`)
-      .join("\n");
+// Runs one aliased query per batch; aliases that fail (e.g. an unreadable repo) come back as null.
+async function batched(token, items, size, field, variables, varDefs) {
+  const results = [];
+  for (let i = 0; i < items.length; i += size) {
+    const batch = items.slice(i, i + size);
+    const query = `query(${varDefs}) { ${batch.map((item, j) => `a${j}: ${field(item)}`).join("\n")} }`;
     let data;
     try {
-      data = await gql(token, `query($author: ID!, $since: GitTimestamp!, $until: GitTimestamp!) { ${fields} }`, { author: authorId, since, until });
+      data = await gql(token, query, variables);
     } catch (error) {
-      if (!error.data) throw error;
-      data = error.data; // partial result: some repos unreadable
+      if (error.status === 401) throw error;
+      if (!error.data && batch.length > 1) {
+        results.push(...(await batched(token, batch, 1, field, variables, varDefs))); // too heavy together
+        continue;
+      }
+      data = error.data; // partial result, or one item that keeps failing: skipped as unreadable
     }
-    batch.forEach((repo, j) => {
-      const node = data?.[`r${j}`];
-      if (!node) unreadable++;
-      else if (node.defaultBranchRef?.target?.history?.totalCount > 0) active.push(repo);
-    });
+    batch.forEach((item, j) => results.push([item, data?.[`a${j}`] ?? null]));
   }
-  return { active, unreadable };
+  return results;
 }
 
-async function historyPage(token, repo, authorId, since, until, after) {
+// Branches counted besides each repo's default branch, when they exist. Feature branches are left out on
+// purpose: there are thousands of them, and their work reaches these branches anyway (squash-merged work
+// would otherwise be counted twice). Exact names, plus prefixes for families like release/1.2.
+export const EXTRA_BRANCHES = ["beta", "develop", "development", "dev", "staging", "stage", "homolog", "homologacao", "main", "master"];
+export const EXTRA_BRANCH_PREFIXES = ["release"];
+
+// The default branch plus the long-lived branches above, if their tip was committed inside the window
+// (an older tip cannot contain window commits).
+async function longLivedBranches(token, repos, since) {
+  const sinceDate = new Date(since);
+  const tip = "id target { ... on Commit { oid committedDate } }";
+  const field = (repo) => `node(id: ${JSON.stringify(repo.id)}) { ... on Repository {
+    defaultBranchRef { ${tip} }
+    ${EXTRA_BRANCHES.map((name, k) => `b${k}: ref(qualifiedName: ${JSON.stringify(`refs/heads/${name}`)}) { ${tip} }`).join("\n")}
+    ${EXTRA_BRANCH_PREFIXES.map((prefix, k) => `p${k}: refs(refPrefix: "refs/heads/", query: ${JSON.stringify(prefix)}, first: 50) { nodes { name ${tip} } }`).join("\n")}
+  } }`;
+  const branches = [];
+  let unreadable = 0;
+  for (const [repo, node] of await batched(token, repos, 10, field, {}, "")) {
+    if (!node) {
+      unreadable++;
+      continue;
+    }
+    const refs = [node.defaultBranchRef, ...EXTRA_BRANCHES.map((_, k) => node[`b${k}`])];
+    EXTRA_BRANCH_PREFIXES.forEach((prefix, k) => refs.push(...(node[`p${k}`]?.nodes ?? []).filter((r) => r.name.startsWith(prefix))));
+    const seen = new Set();
+    for (const ref of refs) {
+      if (!ref?.target?.committedDate || seen.has(ref.id) || new Date(ref.target.committedDate) < sinceDate) continue;
+      seen.add(ref.id);
+      branches.push({ repo, id: ref.id });
+    }
+  }
+  return { branches, unreadable };
+}
+
+// One page of the user's commits on a branch. Long histories filtered by author can time out (HTTP 502), so a
+// failing page is retried with fewer attempts at smaller sizes before giving up.
+const HISTORY_PAGE_SIZES = [100, 50, 25];
+async function historyPage(token, branchId, authorId, since, until, after) {
   let lastError;
-  for (const size of PAGE_SIZES) {
+  for (const [k, size] of HISTORY_PAGE_SIZES.entries()) {
     try {
       const data = await gql(
         token,
         `query($id: ID!, $author: ID!, $since: GitTimestamp!, $until: GitTimestamp!, $after: String) {
-          node(id: $id) { ... on Repository { defaultBranchRef { target { ... on Commit {
-            history(first: ${size}, after: $after, ${historyArgs}) {
-              pageInfo { hasNextPage endCursor }
-              nodes { committedDate additions deletions parents { totalCount } }
-            } } } } } }
+          node(id: $id) { ... on Ref { target { ... on Commit { history(first: ${size}, after: $after, ${historyArgs}) {
+            pageInfo { hasNextPage endCursor } nodes { ${COMMIT_FIELDS} } } } } } }
         }`,
-        { id: repo.id, author: authorId, since, until, after },
+        { id: branchId, author: authorId, since, until, after },
+        k === HISTORY_PAGE_SIZES.length - 1 ? MAX_ATTEMPTS : 3,
       );
-      return data.node.defaultBranchRef.target.history;
+      return data.node?.target?.history ?? { nodes: [], pageInfo: { hasNextPage: false } };
     } catch (error) {
-      lastError = error; // big diffs can time out computing additions/deletions; retry with a smaller page
+      if (error.status === 401) throw error;
+      lastError = error;
     }
   }
   throw lastError;
+}
+
+// The user's commits on the selected branches, deduplicated by SHA. A rebased or cherry-picked copy of a
+// commit gets a new SHA but keeps its author date and message, so copies inside one repo are deduplicated by
+// that pair too (hashed, kept in memory only). A branch that can't be read fails the run rather than
+// silently undercounting.
+async function branchCommits(token, branches, authorId, since, until) {
+  const commits = new Map(); // oid -> commit, or null for a dropped copy
+  const copies = new Set(); // repo id + hash(author date, headline)
+  const stats = { branches: 0, listed: 0, copies: 0 };
+  const add = (repo, c) => {
+    stats.listed++;
+    if (commits.has(c.oid)) return;
+    const key = `${repo.id}:${createHash("sha256").update(`${c.authoredDate}\n${c.messageHeadline}`).digest("hex")}`;
+    if (copies.has(key)) {
+      stats.copies++;
+      commits.set(c.oid, null);
+      return;
+    }
+    copies.add(key);
+    commits.set(c.oid, { id: c.id, committedDate: c.committedDate, merge: c.parents.totalCount > 1 });
+  };
+
+  for (const branch of branches) {
+    let after = null;
+    let found = 0;
+    do {
+      const history = await historyPage(token, branch.id, authorId, since, until, after);
+      history.nodes.forEach((c) => add(branch.repo, c));
+      found += history.nodes.length;
+      after = history.pageInfo.hasNextPage ? history.pageInfo.endCursor : null;
+    } while (after);
+    if (found) stats.branches++;
+  }
+  return { commits: [...commits.values()].filter(Boolean), stats };
+}
+
+// additions/deletions for each commit; big diffs can time out, so failed batches are retried smaller.
+async function lineStats(token, commits) {
+  const result = new Map();
+  let failed = 0;
+  const fetchBatch = async (batch, sizes) => {
+    try {
+      const data = await gql(token, `query($ids: [ID!]!) { nodes(ids: $ids) { ... on Commit { id additions deletions } } }`, { ids: batch.map((c) => c.id) }, sizes.length ? 2 : MAX_ATTEMPTS);
+      data.nodes.filter(Boolean).forEach((n) => result.set(n.id, n));
+    } catch (error) {
+      if (error.status === 401) throw error;
+      error.data?.nodes?.filter(Boolean).forEach((n) => result.set(n.id, n));
+      const missing = batch.filter((c) => !result.has(c.id));
+      if (!sizes.length) {
+        failed += missing.length;
+        return;
+      }
+      const [size, ...rest] = sizes;
+      for (let i = 0; i < missing.length; i += size) await fetchBatch(missing.slice(i, i + size), rest);
+    }
+  };
+  for (let i = 0; i < commits.length; i += 50) await fetchBatch(commits.slice(i, i + 50), [10, 1]);
+  return { result, failed };
 }
 
 function emptyMonth(window) {
@@ -228,6 +328,8 @@ export async function collect(token, now = new Date()) {
   const since = windows[0].since;
   const until = now.toISOString();
 
+  const started = Date.now();
+  const elapsed = () => `${Math.round((Date.now() - started) / 1000)}s`;
   const viewer = (await gql(token, "{ viewer { id login } }")).viewer;
   if (viewer.login.toLowerCase() !== LOGIN.toLowerCase()) log(`warning: token belongs to a different user than ${LOGIN}`);
 
@@ -236,30 +338,28 @@ export async function collect(token, now = new Date()) {
   const candidates = repos.filter((r) => !r.isFork);
   log(`repositories: ${repos.length} accessible, ${candidates.length} non-fork`);
 
-  const { active, unreadable } = await reposWithCommits(token, candidates, viewer.id, since, until);
-  log(`repositories with commits in the window: ${active.length}${unreadable ? ` (${unreadable} unreadable, skipped)` : ""}`);
+  const { branches, unreadable } = await longLivedBranches(token, candidates, since);
+  log(`branches to read: ${branches.length} (default + long-lived, tip inside the window)${unreadable ? `; ${unreadable} repos unreadable, skipped` : ""} [${elapsed()}]`);
 
-  let commitsSeen = 0;
-  for (const repo of active) {
-    let after = null;
-    do {
-      const history = await historyPage(token, repo, viewer.id, since, until, after);
-      for (const commit of history.nodes) {
-        const bucket = months.get(monthKey(new Date(commit.committedDate)));
-        if (!bucket) continue;
-        commitsSeen++;
-        bucket.commits++;
-        if (commit.parents.totalCount > 1) bucket.mergeCommits++;
-        else if (commit.additions + commit.deletions > MAX_LINES_PER_COMMIT) bucket.largeCommits++;
-        else {
-          bucket.additions += commit.additions;
-          bucket.deletions += commit.deletions;
-        }
-      }
-      after = history.pageInfo.hasNextPage ? history.pageInfo.endCursor : null;
-    } while (after);
+  const { commits, stats } = await branchCommits(token, branches, viewer.id, since, until);
+  log(`commits: ${stats.listed} listed on ${stats.branches} branches, ${commits.length} unique (${stats.copies} rebased/cherry-picked copies dropped) [${elapsed()}]`);
+
+  const { result: lines, failed } = await lineStats(token, commits.filter((c) => !c.merge));
+  log(`line stats read [${elapsed()}]${failed ? `; unavailable for ${failed} commits (counted as commits only)` : ""}`);
+
+  for (const commit of commits) {
+    const bucket = months.get(monthKey(new Date(commit.committedDate)));
+    if (!bucket) continue;
+    bucket.commits++;
+    const stat = lines.get(commit.id);
+    if (commit.merge) bucket.mergeCommits++;
+    else if (!stat) continue;
+    else if (stat.additions + stat.deletions > MAX_LINES_PER_COMMIT) bucket.largeCommits++;
+    else {
+      bucket.additions += stat.additions;
+      bucket.deletions += stat.deletions;
+    }
   }
-  log(`commits read: ${commitsSeen}`);
 
   for (const w of windows) {
     const end = new Date(Math.min(w.untilDate, now) - 1000).toISOString().replace(/\.\d+Z$/, "Z");
@@ -274,7 +374,9 @@ export async function collect(token, now = new Date()) {
     );
     Object.assign(months.get(w.key), { prsOpened: data.opened.issueCount, prsMerged: data.merged.issueCount });
   }
-  log("pull request counts: done");
+  log(`pull request counts read [${elapsed()}]`);
+  const points = rateLimitUsed.length === 2 && rateLimitUsed[1] >= rateLimitUsed[0] ? `, ~${rateLimitUsed[1] - rateLimitUsed[0] + 1} rate-limit points` : "";
+  log(`API calls: ${apiCalls}${points}`);
 
   return summarize([...months.values()], now);
 }
@@ -494,7 +596,7 @@ export function renderSvg(stats, themeName) {
   const excluded = totals.largeCommits;
   const footY = axisY + 56;
   back.push(
-    `<text x="${PAD_X}" y="${footY}" font-size="11" fill="${t.muted}">Lines exclude merge commits and commits over ${compact(MAX_LINES_PER_COMMIT)} changed lines (${excluded} ${excluded === 1 ? "commit" : "commits"} left out). Commits: default branches.</text>`,
+    `<text x="${PAD_X}" y="${footY}" font-size="11" fill="${t.muted}">Lines exclude merges and commits over ${compact(MAX_LINES_PER_COMMIT)} changed lines (${excluded} left out). Commits: default + long-lived branches, deduped.</text>`,
     `<text x="${PAD_X}" y="${footY + 17}" font-size="11" fill="${t.muted}">Includes private contributions (aggregated) · updated ${stats.updated}</text>`,
   );
 
