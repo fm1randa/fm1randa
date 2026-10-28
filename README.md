@@ -1,46 +1,41 @@
-<h2 align="left">hey! 👋 sup?</h2>
+### Hey! I'm Filipe 👋
 
-###
+**TL;DR:**
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&username=fm1randa" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&username=fm1randa" height="150" alt="languages graph"  />
-</div>
+- 🧑‍💻 Software Developer II at [Agidesk](https://agidesk.com.br), based in Rio de Janeiro 🇧🇷
+- 🤖 These days most of my code is written by orchestrating AI coding agents, and I build tools that make them work better
+- 💸 Creator of [`mdcli`](https://github.com/fm1randa/mdcli), an unofficial command-line client for Meu Dinheiro, the Brazilian personal finance app
+- 🌐 More about me at [filipemiranda.dev](https://filipemiranda.dev)
 
-###
+### Where I've worked
 
-<img align="right" height="150" src="https://i.pinimg.com/564x/8b/5f/04/8b5f04525a528637c52dc12298e9e8e3.jpg"  />
+- **[Agidesk](https://agidesk.com.br)** (current)
+- **[Tempo](https://tempo.io)**, via [e-Core](https://e-core.com)
+- **[SimTC](https://simtc.com.br)**, **[Tanto](https://www.tanto.com.br)** and **[Atende Portaria](https://www.atendeportaria.com.br)**, via [MGN](https://www.mgnit.com.br/)
 
-###
+<!-- Roles/years from LinkedIn would go here once confirmed -->
 
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" width="42" alt="javascript logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" height="30" width="42" alt="typescript logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30" width="42" alt="react logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="30" width="42" alt="html5 logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" width="42" alt="css3 logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" height="30" width="42" alt="nestjs logo"  />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" height="30" width="42" alt="jira logo"  />
-</div>
+### Things I've built
 
-###
+- [**mdcli**](https://github.com/fm1randa/mdcli): manage your Meu Dinheiro finances from the terminal
+- [**Hinário IPB**](https://hinarioipb.filipemiranda.dev): the IPB hymnal, online
+- [**ChavePIX.io**](https://chavepix.io)
+- [**Taki**](https://bot.flpm.net?text=!ajuda): a WhatsApp bot
+- [**oh-my-tabnews**](https://github.com/fm1randa/oh-my-tabnews): a browser extension with extra features for [TabNews](https://www.tabnews.com.br) power users
+- [**skills**](https://github.com/fm1randa/skills): my personal collection of Agent Skills
 
-<div align="left">
-  <a href="https://www.instagram.com/_filipe.miranda/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram logo"  />
-  </a>
-  <a href="https://discordapp.com/users/filipemiranda" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
-  </a>
-  <a href="mailto:filipe.rj149@gmail.com" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
-  </a>
-  <a href="https://www.linkedin.com/in/-filipemiranda/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
-  </a>
-</div>
+### Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./metrics/activity-dark.svg" />
+  <img src="./metrics/activity-light.svg" alt="Monthly activity over the last 12 months: lines changed, commits and pull requests opened, including private repositories" width="100%" />
+</picture>
 
 ![profile views](https://komarev.com/ghpvc/?username=fm1randa&color=green)
 [![wakatime](https://wakatime.com/badge/user/5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9.svg)](https://wakatime.com/@5f8304a9-1b78-4fbc-8a6c-55c7a4421eb9)
 
-###
+### Say hi
+
+[filipemiranda.dev](https://filipemiranda.dev) · [X](https://x.com/filipem1randa)
+
+<sub>Falo português também, pode mandar mensagem em pt-BR. 😉</sub>
