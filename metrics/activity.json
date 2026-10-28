@@ -1,0 +1,149 @@
+{
+  "updated": "2026-10-28",
+  "timeZone": "America/Sao_Paulo",
+  "maxLinesPerCommit": 20000,
+  "months": [
+    {
+      "month": "2025-11",
+      "partial": false,
+      "commits": 95,
+      "additions": 24793,
+      "deletions": 6342,
+      "mergeCommits": 7,
+      "largeCommits": 1,
+      "prsOpened": 34,
+      "prsMerged": 33
+    },
+    {
+      "month": "2025-12",
+      "partial": false,
+      "commits": 78,
+      "additions": 35580,
+      "deletions": 7707,
+      "mergeCommits": 2,
+      "largeCommits": 0,
+      "prsOpened": 38,
+      "prsMerged": 38
+    },
+    {
+      "month": "2026-01",
+      "partial": false,
+      "commits": 429,
+      "additions": 131280,
+      "deletions": 73731,
+      "mergeCommits": 32,
+      "largeCommits": 2,
+      "prsOpened": 122,
+      "prsMerged": 107
+    },
+    {
+      "month": "2026-02",
+      "partial": false,
+      "commits": 286,
+      "additions": 65030,
+      "deletions": 28567,
+      "mergeCommits": 12,
+      "largeCommits": 0,
+      "prsOpened": 20,
+      "prsMerged": 18
+    },
+    {
+      "month": "2026-03",
+      "partial": false,
+      "commits": 445,
+      "additions": 129140,
+      "deletions": 88949,
+      "mergeCommits": 62,
+      "largeCommits": 2,
+      "prsOpened": 132,
+      "prsMerged": 122
+    },
+    {
+      "month": "2026-04",
+      "partial": false,
+      "commits": 213,
+      "additions": 84464,
+      "deletions": 47418,
+      "mergeCommits": 25,
+      "largeCommits": 7,
+      "prsOpened": 97,
+      "prsMerged": 95
+    },
+    {
+      "month": "2026-05",
+      "partial": false,
+      "commits": 229,
+      "additions": 19384,
+      "deletions": 5841,
+      "mergeCommits": 37,
+      "largeCommits": 0,
+      "prsOpened": 101,
+      "prsMerged": 98
+    },
+    {
+      "month": "2026-06",
+      "partial": false,
+      "commits": 381,
+      "additions": 99094,
+      "deletions": 39201,
+      "mergeCommits": 52,
+      "largeCommits": 2,
+      "prsOpened": 110,
+      "prsMerged": 109
+    },
+    {
+      "month": "2026-07",
+      "partial": false,
+      "commits": 211,
+      "additions": 69756,
+      "deletions": 7620,
+      "mergeCommits": 35,
+      "largeCommits": 0,
+      "prsOpened": 92,
+      "prsMerged": 90
+    },
+    {
+      "month": "2026-08",
+      "partial": false,
+      "commits": 196,
+      "additions": 119171,
+      "deletions": 10613,
+      "mergeCommits": 21,
+      "largeCommits": 0,
+      "prsOpened": 75,
+      "prsMerged": 73
+    },
+    {
+      "month": "2026-09",
+      "partial": false,
+      "commits": 253,
+      "additions": 52043,
+      "deletions": 16075,
+      "mergeCommits": 51,
+      "largeCommits": 0,
+      "prsOpened": 68,
+      "prsMerged": 63
+    },
+    {
+      "month": "2026-10",
+      "partial": true,
+      "commits": 700,
+      "additions": 89095,
+      "deletions": 19459,
+      "mergeCommits": 95,
+      "largeCommits": 1,
+      "prsOpened": 289,
+      "prsMerged": 243
+    }
+  ],
+  "totals": {
+    "commits": 3516,
+    "additions": 918830,
+    "deletions": 351523,
+    "linesChanged": 1270353,
+    "mergeCommits": 431,
+    "largeCommits": 15,
+    "prsOpened": 1178,
+    "prsMerged": 1089
+  }
+}

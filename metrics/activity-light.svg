@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Monthly activity over the last 12 months: 1.3M lines changed, 3.5k commits, 1.2k pull requests opened." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title>Monthly activity over the last 12 months: 1.3M lines changed, 3.5k commits, 1.2k pull requests opened.</title>
+<rect x="722" y="52" width="60" height="400" rx="6" fill="#818b98" fill-opacity="0.12"/>
+<text x="16" y="28" font-size="17" font-weight="600" fill="#1f2328">Monthly activity, last 12 months</text>
+<text x="16" y="70" font-size="13" fill="#59636e"><tspan font-weight="600" fill="#1f2328">Lines changed</tspan><tspan dx="8">1.3M total</tspan><tspan dx="14" font-size="12" fill="#1a7f37">■</tspan><tspan dx="4" font-size="12">added 919k</tspan><tspan dx="14" font-size="12" fill="#cf222e">■</tspan><tspan dx="4" font-size="12">deleted 352k</tspan></text>
+<line x1="16" x2="784" y1="164.5" y2="164.5" stroke="#d1d9e0"/>
+<rect x="30" y="155.8" width="36" height="8.2" fill="#1a7f37"/>
+<rect x="30" y="153.7" width="36" height="2.1" fill="#cf222e"/>
+<text x="48" y="149.7" font-size="11" text-anchor="middle" fill="#1f2328">31.1k</text>
+<rect x="94" y="152.3" width="36" height="11.7" fill="#1a7f37"/>
+<rect x="94" y="149.7" width="36" height="2.5" fill="#cf222e"/>
+<text x="112" y="145.7" font-size="11" text-anchor="middle" fill="#1f2328">43.3k</text>
+<rect x="158" y="120.7" width="36" height="43.3" fill="#1a7f37"/>
+<rect x="158" y="96.3" width="36" height="24.3" fill="#cf222e"/>
+<text x="176" y="92.3" font-size="11" text-anchor="middle" fill="#1f2328">205k</text>
+<rect x="222" y="142.5" width="36" height="21.5" fill="#1a7f37"/>
+<rect x="222" y="133.1" width="36" height="9.4" fill="#cf222e"/>
+<text x="240" y="129.1" font-size="11" text-anchor="middle" fill="#1f2328">93.6k</text>
+<rect x="286" y="121.4" width="36" height="42.6" fill="#1a7f37"/>
+<rect x="286" y="92" width="36" height="29.4" fill="#cf222e"/>
+<text x="304" y="88" font-size="11" text-anchor="middle" fill="#1f2328">218k</text>
+<rect x="350" y="136.1" width="36" height="27.9" fill="#1a7f37"/>
+<rect x="350" y="120.5" width="36" height="15.7" fill="#cf222e"/>
+<text x="368" y="116.5" font-size="11" text-anchor="middle" fill="#1f2328">132k</text>
+<rect x="414" y="157.6" width="36" height="6.4" fill="#1a7f37"/>
+<rect x="414" y="155.7" width="36" height="1.9" fill="#cf222e"/>
+<text x="432" y="151.7" font-size="11" text-anchor="middle" fill="#1f2328">25.2k</text>
+<rect x="478" y="131.3" width="36" height="32.7" fill="#1a7f37"/>
+<rect x="478" y="118.3" width="36" height="12.9" fill="#cf222e"/>
+<text x="496" y="114.3" font-size="11" text-anchor="middle" fill="#1f2328">138k</text>
+<rect x="542" y="141" width="36" height="23" fill="#1a7f37"/>
+<rect x="542" y="138.5" width="36" height="2.5" fill="#cf222e"/>
+<text x="560" y="134.5" font-size="11" text-anchor="middle" fill="#1f2328">77.4k</text>
+<rect x="606" y="124.7" width="36" height="39.3" fill="#1a7f37"/>
+<rect x="606" y="121.2" width="36" height="3.5" fill="#cf222e"/>
+<text x="624" y="117.2" font-size="11" text-anchor="middle" fill="#1f2328">130k</text>
+<rect x="670" y="146.8" width="36" height="17.2" fill="#1a7f37"/>
+<rect x="670" y="141.5" width="36" height="5.3" fill="#cf222e"/>
+<text x="688" y="137.5" font-size="11" text-anchor="middle" fill="#1f2328">68.1k</text>
+<rect x="734" y="134.6" width="36" height="29.4" fill="#1a7f37"/>
+<rect x="734" y="128.2" width="36" height="6.4" fill="#cf222e"/>
+<text x="752" y="124.2" font-size="11" text-anchor="middle" fill="#1f2328">109k</text>
+<text x="16" y="196" font-size="13" fill="#59636e"><tspan font-weight="600" fill="#1f2328">Commits</tspan><tspan dx="8">3.5k total</tspan></text>
+<line x1="16" x2="784" y1="290.5" y2="290.5" stroke="#d1d9e0"/>
+<rect x="30" y="280.2" width="36" height="9.8" fill="#0969da"/>
+<text x="48" y="276.2" font-size="11" text-anchor="middle" fill="#1f2328">95</text>
+<rect x="94" y="282" width="36" height="8" fill="#0969da"/>
+<text x="112" y="278" font-size="11" text-anchor="middle" fill="#1f2328">78</text>
+<rect x="158" y="245.9" width="36" height="44.1" fill="#0969da"/>
+<text x="176" y="241.9" font-size="11" text-anchor="middle" fill="#1f2328">429</text>
+<rect x="222" y="260.6" width="36" height="29.4" fill="#0969da"/>
+<text x="240" y="256.6" font-size="11" text-anchor="middle" fill="#1f2328">286</text>
+<rect x="286" y="244.2" width="36" height="45.8" fill="#0969da"/>
+<text x="304" y="240.2" font-size="11" text-anchor="middle" fill="#1f2328">445</text>
+<rect x="350" y="268.1" width="36" height="21.9" fill="#0969da"/>
+<text x="368" y="264.1" font-size="11" text-anchor="middle" fill="#1f2328">213</text>
+<rect x="414" y="266.4" width="36" height="23.6" fill="#0969da"/>
+<text x="432" y="262.4" font-size="11" text-anchor="middle" fill="#1f2328">229</text>
+<rect x="478" y="250.8" width="36" height="39.2" fill="#0969da"/>
+<text x="496" y="246.8" font-size="11" text-anchor="middle" fill="#1f2328">381</text>
+<rect x="542" y="268.3" width="36" height="21.7" fill="#0969da"/>
+<text x="560" y="264.3" font-size="11" text-anchor="middle" fill="#1f2328">211</text>
+<rect x="606" y="269.8" width="36" height="20.2" fill="#0969da"/>
+<text x="624" y="265.8" font-size="11" text-anchor="middle" fill="#1f2328">196</text>
+<rect x="670" y="264" width="36" height="26" fill="#0969da"/>
+<text x="688" y="260" font-size="11" text-anchor="middle" fill="#1f2328">253</text>
+<rect x="734" y="218" width="36" height="72" fill="#0969da"/>
+<text x="752" y="214" font-size="11" text-anchor="middle" fill="#1f2328">700</text>
+<text x="16" y="322" font-size="13" fill="#59636e"><tspan font-weight="600" fill="#1f2328">Pull requests opened</tspan><tspan dx="8">1.2k total</tspan><tspan dx="14" font-size="12" fill="#8250df">■</tspan><tspan dx="4" font-size="12">merged 1.1k</tspan><tspan dx="14" font-size="12" fill="#8250df" fill-opacity="0.35">■</tspan><tspan dx="4" font-size="12">not merged 89</tspan></text>
+<line x1="16" x2="784" y1="416.5" y2="416.5" stroke="#d1d9e0"/>
+<rect x="30" y="407.8" width="36" height="8.2" fill="#8250df"/>
+<rect x="30" y="406.8" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="48" y="402.8" font-size="11" text-anchor="middle" fill="#1f2328">34</text>
+<rect x="94" y="406.5" width="36" height="9.5" fill="#8250df"/>
+<text x="112" y="402.5" font-size="11" text-anchor="middle" fill="#1f2328">38</text>
+<rect x="158" y="389.3" width="36" height="26.7" fill="#8250df"/>
+<rect x="158" y="385.6" width="36" height="3.7" fill="#8250df" fill-opacity="0.35"/>
+<text x="176" y="381.6" font-size="11" text-anchor="middle" fill="#1f2328">122</text>
+<rect x="222" y="411.5" width="36" height="4.5" fill="#8250df"/>
+<rect x="222" y="410.5" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="240" y="406.5" font-size="11" text-anchor="middle" fill="#1f2328">20</text>
+<rect x="286" y="385.6" width="36" height="30.4" fill="#8250df"/>
+<rect x="286" y="383.1" width="36" height="2.5" fill="#8250df" fill-opacity="0.35"/>
+<text x="304" y="379.1" font-size="11" text-anchor="middle" fill="#1f2328">132</text>
+<rect x="350" y="392.3" width="36" height="23.7" fill="#8250df"/>
+<rect x="350" y="391.3" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="368" y="387.3" font-size="11" text-anchor="middle" fill="#1f2328">97</text>
+<rect x="414" y="391.6" width="36" height="24.4" fill="#8250df"/>
+<rect x="414" y="390.6" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="432" y="386.6" font-size="11" text-anchor="middle" fill="#1f2328">101</text>
+<rect x="478" y="388.8" width="36" height="27.2" fill="#8250df"/>
+<rect x="478" y="387.8" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="496" y="383.8" font-size="11" text-anchor="middle" fill="#1f2328">110</text>
+<rect x="542" y="393.6" width="36" height="22.4" fill="#8250df"/>
+<rect x="542" y="392.6" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="560" y="388.6" font-size="11" text-anchor="middle" fill="#1f2328">92</text>
+<rect x="606" y="397.8" width="36" height="18.2" fill="#8250df"/>
+<rect x="606" y="396.8" width="36" height="1" fill="#8250df" fill-opacity="0.35"/>
+<text x="624" y="392.8" font-size="11" text-anchor="middle" fill="#1f2328">75</text>
+<rect x="670" y="400.3" width="36" height="15.7" fill="#8250df"/>
+<rect x="670" y="399.1" width="36" height="1.2" fill="#8250df" fill-opacity="0.35"/>
+<text x="688" y="395.1" font-size="11" text-anchor="middle" fill="#1f2328">68</text>
+<rect x="734" y="355.5" width="36" height="60.5" fill="#8250df"/>
+<rect x="734" y="344" width="36" height="11.5" fill="#8250df" fill-opacity="0.35"/>
+<text x="752" y="340" font-size="11" text-anchor="middle" fill="#1f2328">289</text>
+<text x="48" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Nov</text>
+<text x="48" y="445" font-size="10" text-anchor="middle" fill="#59636e">2025</text>
+<text x="112" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Dec</text>
+<text x="176" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Jan</text>
+<text x="176" y="445" font-size="10" text-anchor="middle" fill="#59636e">2026</text>
+<text x="240" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Feb</text>
+<text x="304" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Mar</text>
+<text x="368" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Apr</text>
+<text x="432" y="432" font-size="11" text-anchor="middle" fill="#1f2328">May</text>
+<text x="496" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Jun</text>
+<text x="560" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Jul</text>
+<text x="624" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Aug</text>
+<text x="688" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Sep</text>
+<text x="752" y="432" font-size="11" text-anchor="middle" fill="#1f2328">Oct</text>
+<text x="752" y="445" font-size="10" text-anchor="middle" fill="#59636e">partial</text>
+<text x="16" y="472" font-size="11" fill="#59636e">Lines exclude merge commits and commits over 20k changed lines (15 commits left out). Commits: default branches.</text>
+<text x="16" y="489" font-size="11" fill="#59636e">Includes private contributions (aggregated) · updated 2026-10-28</text>
+</svg>

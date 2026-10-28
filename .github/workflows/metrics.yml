@@ -1,0 +1,56 @@
+# Monthly activity chart for the profile README (metrics/activity-{light,dark}.svg + activity.json).
+#
+# Setup: add a repository secret named METRICS_TOKEN holding a classic personal access token of fm1randa
+# with the `repo` and `read:org` scopes (needed to read private and organization repositories). If an org
+# enforces SAML SSO, authorize the token for that org. The token is only used to READ; the results are
+# committed with the workflow's own GITHUB_TOKEN (contents: write) as github-actions[bot].
+#
+# Only monthly aggregates are written or logged. The generator refuses to write if any repository name
+# appears in its outputs, and the check step re-verifies the files before committing.
+
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # daily, 06:00 America/Sao_Paulo
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: false
+
+jobs:
+  activity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate activity chart
+        run: node scripts/activity.mjs --out metrics
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+      - name: Privacy check
+        run: node scripts/activity.mjs --check metrics
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          git add metrics
+          if git diff --staged --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update activity metrics"
+          git push
