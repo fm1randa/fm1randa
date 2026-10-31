@@ -2,7 +2,7 @@
 <title>Monthly activity over the last 12 months: 1.2M lines changed, 3.5k commits, 1.2k pull requests opened.</title>
 <text x="16" y="26" font-size="17" font-weight="600" fill="#f0f6fc">Monthly activity, last 12 months</text>
 <rect x="714" y="70" width="56" height="468" rx="6" fill="#9198a1" fill-opacity="0.12"/>
-<text x="16" y="62" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Lines changed</tspan><tspan dx="8">1.2M total</tspan><tspan dx="16" font-size="12" fill="#656c76" fill-opacity="0.8">┅</tspan><tspan dx="4" font-size="12">total</tspan><tspan dx="16" font-size="12" fill="#2ea043">━</tspan><tspan dx="4" font-size="12">added 880k</tspan><tspan dx="16" font-size="12" fill="#db61a2">━</tspan><tspan dx="4" font-size="12">deleted 324k</tspan></text>
+<text x="16" y="62" font-size="13" fill="#9198a1"><tspan font-weight="600" fill="#f0f6fc">Lines changed</tspan><tspan dx="8">1.2M total</tspan><tspan dx="16" font-size="12" fill="#656c76" fill-opacity="0.8">┅</tspan><tspan dx="4" font-size="12">total</tspan><tspan dx="16" font-size="12" fill="#2ea043">━</tspan><tspan dx="4" font-size="12">added 883k</tspan><tspan dx="16" font-size="12" fill="#db61a2">━</tspan><tspan dx="4" font-size="12">deleted 325k</tspan></text>
 <line x1="52" x2="772" y1="184.5" y2="184.5" stroke="#3d444d" stroke-opacity="1"/>
 <text x="44" y="188" font-size="10" text-anchor="end" fill="#9198a1">0</text>
 <line x1="52" x2="772" y1="165.3" y2="165.3" stroke="#3d444d" stroke-opacity="0.6"/>
@@ -55,19 +55,19 @@
 <text x="742" y="522" font-size="11" text-anchor="middle" fill="#f0f6fc">Oct</text>
 <text x="742" y="534" font-size="10" text-anchor="middle" fill="#9198a1">partial</text>
 <text x="16" y="560" font-size="11" fill="#9198a1">Lines exclude merges and commits over 20k changed lines (16 left out). Commits: default + long-lived branches, deduped.</text>
-<text x="16" y="577" font-size="11" fill="#9198a1">Includes private contributions (aggregated) · updated 2026-10-30</text>
+<text x="16" y="577" font-size="11" fill="#9198a1">Includes private contributions (aggregated) · updated 2026-10-31</text>
 <polyline points="82,172 142,167.8 202,143 262,152.5 322,103.1 382,133.4 442,174.4 502,130.9 562,154.5 622,132.3 682,159.9" fill="none" stroke="#656c76" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.7"/>
-<polyline points="682,159.9 742,121.5" fill="none" stroke="#656c76" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" stroke-opacity="0.7"/>
+<polyline points="682,159.9 742,120.3" fill="none" stroke="#656c76" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" stroke-opacity="0.7"/>
 <polyline points="82,174.5 142,170.4 202,157.4 262,162.4 322,137.1 382,151.6 442,176.6 502,146 562,157.4 622,136.5 682,165.5" fill="none" stroke="#2ea043" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="682,165.5 742,134.5" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="682,165.5 742,133.5" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
 <polyline points="82,181.6 142,181.4 202,169.6 262,174.1 322,150 382,165.8 442,181.8 502,169 562,181.1 622,179.8 682,178.4" fill="none" stroke="#db61a2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="682,178.4 742,170.9" fill="none" stroke="#db61a2" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="682,178.4 742,170.8" fill="none" stroke="#db61a2" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
 <polyline points="82,334.9 142,337.7 202,319.4 262,321.4 322,303.9 382,323.8 442,322.4 502,307.6 562,324.3 622,324.4 682,320.5" fill="none" stroke="#4493f8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="682,320.5 742,255.4" fill="none" stroke="#4493f8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="682,320.5 742,252.6" fill="none" stroke="#4493f8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
 <polyline points="82,495.8 142,494.9 202,474.7 262,499.2 322,472.3 382,480.7 442,479.8 502,477.6 562,481.9 622,486 682,487.7" fill="none" stroke="#2ea043" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="682,487.7 742,421.4" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="682,487.7 742,417.6" fill="none" stroke="#2ea043" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
 <polyline points="82,496.1 142,494.9 202,478.3 262,499.7 322,474.7 382,481.2 442,480.5 502,477.8 562,482.4 622,486.5 682,488.9" fill="none" stroke="#a371f7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="682,488.9 742,427" fill="none" stroke="#a371f7" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+<polyline points="682,488.9 742,423.8" fill="none" stroke="#a371f7" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
 <circle cx="82" cy="174.5" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="142" cy="170.4" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="202" cy="157.4" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
@@ -79,7 +79,7 @@
 <circle cx="562" cy="157.4" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="622" cy="136.5" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="682" cy="165.5" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
-<circle cx="742" cy="134.5" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
+<circle cx="742" cy="133.5" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
 <circle cx="82" cy="181.6" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
 <circle cx="142" cy="181.4" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
 <circle cx="202" cy="169.6" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
@@ -91,7 +91,7 @@
 <circle cx="562" cy="181.1" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
 <circle cx="622" cy="179.8" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
 <circle cx="682" cy="178.4" r="4" fill="#db61a2" stroke="#0d1117" stroke-width="2"/>
-<circle cx="742" cy="170.9" r="4" fill="#0d1117" stroke="#db61a2" stroke-width="2"/>
+<circle cx="742" cy="170.8" r="4" fill="#0d1117" stroke="#db61a2" stroke-width="2"/>
 <circle cx="82" cy="334.9" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
 <circle cx="142" cy="337.7" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
 <circle cx="202" cy="319.4" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
@@ -103,7 +103,7 @@
 <circle cx="562" cy="324.3" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
 <circle cx="622" cy="324.4" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
 <circle cx="682" cy="320.5" r="4" fill="#4493f8" stroke="#0d1117" stroke-width="2"/>
-<circle cx="742" cy="255.4" r="4" fill="#0d1117" stroke="#4493f8" stroke-width="2"/>
+<circle cx="742" cy="252.6" r="4" fill="#0d1117" stroke="#4493f8" stroke-width="2"/>
 <circle cx="82" cy="495.8" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="142" cy="494.9" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="202" cy="474.7" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
@@ -115,7 +115,7 @@
 <circle cx="562" cy="481.9" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="622" cy="486" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
 <circle cx="682" cy="487.7" r="4" fill="#2ea043" stroke="#0d1117" stroke-width="2"/>
-<circle cx="742" cy="421.4" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
+<circle cx="742" cy="417.6" r="4" fill="#0d1117" stroke="#2ea043" stroke-width="2"/>
 <circle cx="82" cy="496.1" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
 <circle cx="142" cy="494.9" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
 <circle cx="202" cy="478.3" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
@@ -127,19 +127,19 @@
 <circle cx="562" cy="482.4" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
 <circle cx="622" cy="486.5" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
 <circle cx="682" cy="488.9" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
-<circle cx="742" cy="427" r="4" fill="#0d1117" stroke="#a371f7" stroke-width="2"/>
-<text x="742" y="125.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">129k</text>
-<text x="742" y="189.9" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">34.1k</text>
+<circle cx="742" cy="423.8" r="4" fill="#0d1117" stroke="#a371f7" stroke-width="2"/>
+<text x="742" y="124.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">131k</text>
+<text x="742" y="189.8" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">34.3k</text>
 <text x="622" y="127.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">124k</text>
 <text x="322" y="169" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">88.6k</text>
 <text x="442" y="158.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">19.3k</text>
 <text x="82" y="165.5" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">24.8k</text>
-<text x="742" y="246.4" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">923</text>
+<text x="742" y="243.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">952</text>
 <text x="322" y="294.9" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">418</text>
 <text x="142" y="328.7" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">66</text>
 <text x="82" y="325.9" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">95</text>
-<text x="742" y="412.4" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">344</text>
-<text x="759.6" y="431" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">321</text>
+<text x="742" y="408.6" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">360</text>
+<text x="759.6" y="427.8" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">334</text>
 <text x="322" y="463.3" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">132</text>
 <text x="322" y="493.7" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">122</text>
 <text x="262" y="490.2" font-size="11" text-anchor="middle" fill="#f0f6fc" stroke="#0d1117" stroke-width="3" stroke-linejoin="round" paint-order="stroke">20</text>
