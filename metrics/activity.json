@@ -1,19 +1,8 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "timeZone": "America/Sao_Paulo",
   "maxLinesPerCommit": 20000,
   "months": [
-    {
-      "month": "2025-11",
-      "partial": false,
-      "commits": 95,
-      "additions": 24793,
-      "deletions": 6342,
-      "mergeCommits": 7,
-      "largeCommits": 1,
-      "prsOpened": 34,
-      "prsMerged": 33
-    },
     {
       "month": "2025-12",
       "partial": false,
@@ -126,24 +115,35 @@
     },
     {
       "month": "2026-10",
-      "partial": true,
-      "commits": 952,
-      "additions": 131442,
-      "deletions": 34337,
-      "mergeCommits": 146,
+      "partial": false,
+      "commits": 970,
+      "additions": 134193,
+      "deletions": 34593,
+      "mergeCommits": 147,
       "largeCommits": 2,
-      "prsOpened": 360,
-      "prsMerged": 334
+      "prsOpened": 362,
+      "prsMerged": 338
+    },
+    {
+      "month": "2026-11",
+      "partial": true,
+      "commits": 1,
+      "additions": 409,
+      "deletions": 1,
+      "mergeCommits": 0,
+      "largeCommits": 0,
+      "prsOpened": 3,
+      "prsMerged": 1
     }
   ],
   "totals": {
-    "commits": 3490,
-    "additions": 883097,
-    "deletions": 324667,
-    "linesChanged": 1207764,
-    "mergeCommits": 476,
-    "largeCommits": 16,
-    "prsOpened": 1249,
-    "prsMerged": 1180
+    "commits": 3414,
+    "additions": 861464,
+    "deletions": 318582,
+    "linesChanged": 1180046,
+    "mergeCommits": 470,
+    "largeCommits": 15,
+    "prsOpened": 1220,
+    "prsMerged": 1152
   }
 }
