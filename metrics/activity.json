@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "timeZone": "America/Sao_Paulo",
   "maxLinesPerCommit": 20000,
   "months": [
@@ -127,23 +127,23 @@
     {
       "month": "2026-11",
       "partial": true,
-      "commits": 2037,
-      "additions": 333051,
-      "deletions": 117235,
-      "mergeCommits": 374,
+      "commits": 2145,
+      "additions": 362383,
+      "deletions": 126545,
+      "mergeCommits": 402,
       "largeCommits": 4,
-      "prsOpened": 683,
-      "prsMerged": 652
+      "prsOpened": 701,
+      "prsMerged": 672
     }
   ],
   "totals": {
-    "commits": 5546,
-    "additions": 1199166,
-    "deletions": 436545,
-    "linesChanged": 1635711,
-    "mergeCommits": 871,
+    "commits": 5654,
+    "additions": 1228498,
+    "deletions": 445855,
+    "linesChanged": 1674353,
+    "mergeCommits": 899,
     "largeCommits": 19,
-    "prsOpened": 1900,
-    "prsMerged": 1812
+    "prsOpened": 1918,
+    "prsMerged": 1832
   }
 }
